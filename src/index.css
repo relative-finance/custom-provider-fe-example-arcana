@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+
+* {
+  font-family: "Sora", sans-serif;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  width: 200px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  background: none;
+}
+
+.btn:hover {
+  color: white;
+  background-color: black;
+}
+
+.main {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  border: 2px solid black;
+  padding: 40px 40px;
+}
+
+.login-container {
+  margin-top: 20px;
+}
+
+.login-container > div {
+  margin-top: 10px;
+}
