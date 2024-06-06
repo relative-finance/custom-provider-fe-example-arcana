@@ -42,10 +42,14 @@ const Complete = () => {
         .then(function (params) {
           setProgressText("Arcana: Logging In");
           if (params.linkComplete == true) {
-            getAuth().then(() => {
-              setProgressText(`Account linked to ${params.linkedAccount}`);
-              console.log("Link complete!");
-            });
+            getAuth()
+              .then(() => {
+                setProgressText(`Account linked to ${params.linkedAccount}`);
+                console.log("Link complete!");
+              })
+              .catch((err) => {
+                console.log("Error inside getAuth", err);
+              });
             return;
           }
           localStorage.setItem("token", params.loginToken);
@@ -55,12 +59,21 @@ const Complete = () => {
               setProgressText("Login complete");
               setStatus(STATUS.COMPLETE);
             });
-            await auth.loginWithCustomProvider({
-              token: params.token,
-              userID: params.userID,
-              provider: "csp-aAPozkerUragPuza",
-            });
+
+            try {
+              await auth.loginWithCustomProvider({
+                token: params.token,
+                userID: params.userID,
+                provider: "csp-FuFwdzeaGrIbgYXB",
+              });
+            } catch (err) {
+              console.log("🚀 ~ err:", err);
+            }
+            
           });
+        })
+        .catch((err) => {
+          console.log("🚀 ~ err:", err);
         })
         .finally(() => {
           setSearchParams({});
@@ -105,7 +118,7 @@ const LinkAccount = ({
 
   return (
     <div>
-      {["epic", "google", "twitch"].map((l) => {
+      {["epic", "google", "twitch", "steam"].map((l) => {
         console.log({ currentLogin });
         if (l == currentLogin) {
           return "";

@@ -44,6 +44,15 @@ const Start = () => {
               Login with twitch
             </Button>
           </div>
+          <div>
+            <Button
+              onClick={() => {
+                redirectToLogin("steam");
+              }}
+            >
+              Login with steam
+            </Button>
+          </div>
         </div>
       </div>
     </div>

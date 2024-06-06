@@ -4,7 +4,7 @@ let auth: AuthProvider | null = null;
 
 const getAuth = async () => {
   if (!auth) {
-    auth = new AuthProvider("xar_dev_ecc6292e414c8228ae69ce5ff6a1b3eca59984e9");
+    auth = new AuthProvider("xar_test_cf84bfa3a1a27a625344370376a45a49b08594f7");
   }
   await auth.init();
   return auth;
